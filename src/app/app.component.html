@@ -1,6 +1,7 @@
 
   <h1>{{ title }}</h1>
-  <nav>
-    <a routerLink="/calculator">Calc</a>
+  <nav class="o-nav">
+    <a class="o-nav__link" routerLink="/calculator" routerLinkActive="isActive">Calc</a>
+    <a class="o-nav__link" routerLink="/word" routerLinkActive="isActive">Word</a>
   </nav>
   <router-outlet></router-outlet>

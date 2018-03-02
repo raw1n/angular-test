@@ -1,3 +1,39 @@
-<p>
-  calculator works!
-</p>
+<div class="container c-calculator">
+  <div class="header">
+    <h2>
+      Calculator component
+    </h2>
+  </div>
+
+  <div class="grid">
+    <div class="row">
+      <div class="col-6">
+        <div class="operation">
+          <div class="row">
+            <div class="col-12">
+              <input type="number" name="" placeholder="number" [(ngModel)]="number1">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <input type="number" name="" placeholder="number" [(ngModel)]="number2">
+            </div>
+          </div>
+          <div>
+            <div class="col-12">
+              <button class="button" (click)="add()">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="result">
+          <span>
+            Result: {{result}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
