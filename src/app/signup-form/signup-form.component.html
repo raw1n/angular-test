@@ -1,0 +1,65 @@
+<div class="row custom-row">
+  <div class="col-sm-5 custom-container jumbotron">
+
+    <form class="form-horizontal" #signupForm = "ngForm">
+      <fieldset>
+        <legend>SignUp</legend>
+
+        <!--- Gender Block -->
+        <div class="form-group">
+          <label for="select">Gender</label>
+          <select id="select" [(ngModel)]="user.gender" name="gender">
+
+            <option *ngFor="let g of gender" [value]="g"> {{g}}
+            </option>
+          </select>
+        </div>
+
+        <!--- Email Block -->
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text" id="inputEmail" placeholder="Email" 
+            [(ngModel)] = "user.email" 
+            name="emails" 
+            #email = "ngModel" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            required>
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="alert alert-danger">
+        <div *ngIf = "email.errors?.required">
+            Email field can't be blank
+        </div>
+        <div *ngIf = "email.errors?.pattern && email.touched">
+            The email id doesn't seem right
+        </div>
+     </div>        
+        <!--- Password Block -->
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" id="inputPassword" placeholder="Password" ngModel name="pwd" #pwd = "ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Password" [(ngModel)] = "user.password.confirmPwd"  name="confirmPwd">
+        </div>
+
+
+        <!--- Terms and conditions Block -->
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox"> Confirm that you've read the Terms and Conditions
+          </label>
+        </div>
+
+        <!--- Buttons Block -->
+        <div class="form-group">
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+    {{user | json}}
+  </div>
+</div>

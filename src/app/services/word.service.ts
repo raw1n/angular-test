@@ -10,9 +10,9 @@ export class WordService {
     this.url = 'https://api.datamuse.com/words?max=10&ml=';
   }
 
-  search_word(term){
+  search_word(term) {
     return this.http.get(this.url + term).map(res => {
       return res.json();
-    })
+    });
   }
 }
