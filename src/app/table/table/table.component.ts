@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-table',
+  providers: [AdventureTimeService],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
@@ -16,7 +17,6 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     this.columns = this.atService.getColumns();
     this.characters = this.atService.getCharacters();
-
   }
 
 }
